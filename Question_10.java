@@ -1,32 +1,30 @@
 import java.util.Scanner;
 public class Question_10 {
+    public static boolean Squre(int n){
+        boolean ans = false;
+        int low =0,high = 0;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            int val = mid*mid;
+            if(val==n)
+            {
+                ans = true;
+            } 
+            else if(val>n){
+                high=mid-1;
+            }
+            else{
+                low = mid+1;
+            }
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of row");
-        int m = sc.nextInt();
-        System.out.println("Enter the colum");
+        System.out.println("Enter the the number:");
         int n = sc.nextInt();
-        int arr[][] = new int[m][n];
-        int max =arr[0][0];
-        System.out.println("Enter the Array element :");
-        for(int i =0;i<m;i++)
-        {
-            for(int j =0;j<n;j++)
-            {
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        for(int i =0;i<m;i++)
-        {
-            for(int j =0;j<n;j++)
-            {
-                if(i+j==m-1||i==j)
-                {
-                    System.out.print(arr[i][j]+" ");
-                }
-            }
-        }
-
+        boolean res = Squre(n);
+        System.out.println(res);
 
     }
 }

@@ -1,60 +1,36 @@
-
 import java.util.Scanner;
 public class Question_6 {
     public static void main(String[] args) {
+        boolean falg = false;
+        int index = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of row");
-        int m = sc.nextInt();
-        System.out.println("Enter the colum");
+        System.out.println("Enter the element you want to add:");
         int n = sc.nextInt();
-        int arr[][] = new int[m][n];
-        int positive=0;
-        int negative=0;
-        int Zero=0;
-        int odd=0;
-        int even=0;
-        for(int i =0;i<m;i++)
-        {
-            for(int j =0;j<n;j++)
-            {
-                arr[i][j] = sc.nextInt();
-            }
+        int [] arr = new int[n];
+        System.out.println("Enter the Array elemnt :");
+        for(int i =0;i<n;i++){
+            arr[i] = sc.nextInt();
         }
-        for(int i =0;i<m;i++)
+        System.out.println("Enter the elemnt you want to serach:");
+        int key = sc.nextInt();
+        for(int i =0;i<n;i++)
         {
-            for(int j =0;j<n;j++)
+            if(arr[i]==key)
             {
-
-
-                if(arr[i][j]<0)
-                {
-                    negative++;
-                }
-                else if(arr[i][j]>0)
-                {
-                    positive++;
-                }
-                else if(arr[i][j]==0)
-                {
-                    Zero++;
-                }
-                if(arr[i][j]%2==0)
-                {
-                    even++;
-                }
-                else {
-                    odd++;
-                }
-
-
-
+                 falg = true;
+                 index = i;
+                 break;
             }
+            
         }
-        System.out.println("The positive number is : "+positive);
-        System.out.println("The negative number is : "+negative);
-        System.out.println( "The zero number is :"+Zero);
-        System.out.println("The Even number is :"+even);
-        System.out.println("The odd number is :"+odd);
+        if(falg == true)
+        {
+            System.out.println(index);
+        }
+        else
+        {
+            System.out.println("Element is not found..");
+        }
 
     }
 }

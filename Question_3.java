@@ -1,26 +1,26 @@
-// 3Write the program to calculate the maximum element in the array
-import java.util.Scanner;
+// Write to sort an array in descending order using insertion sort
+
+import java.util.Arrays;
+
 public class Question_3 {
+    public static void insertion_Sort(int []arr){
+        for(int i = 1;i<arr.length;i++)
+        {
+             int j = i ;
+             while(j>0&&arr[j]>arr[j-1]){
+                int temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+                j--;
+             }
+        }
+    }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of Array");
-        int s = sc.nextInt();
-        int [] arr = new int[s];
-        int n = arr.length;
-        System.out.println("Enter the Array Element :");
-        for(int i=0;i<n;i++)
-        {
-            arr[i]=sc.nextInt();
-        }
-        int max = arr[0];
-        for(int i =1;i<arr.length;i++)
-        {
-            if(max<arr[i])
-            {
-                max=arr[i];
-            }
-        }
-        System.out.println("This Maximum element is :"+max);
+        int[] arr = {3,5,1,6,0};
+        insertion_Sort(arr);
+        System.out.println("Sorted Array:");
+        System.out.println(Arrays.toString(arr));
 
     }
+    
 }

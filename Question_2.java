@@ -1,26 +1,34 @@
-// Write the program to traverse over the element of the Array using for each loop and print all even
-// element ?
-import java.util.Scanner;
+import java.util.Arrays;
+// Write a program to sort an array in descending order using selection sort
 public class Question_2 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of Array");
-        int S = sc.nextInt();
-        int arr[] = new int[S];
-        int n = arr.length;
-        System.out.println("Enter the Array Element");
-        for(int i =0;i<n;i++)
+    public static void  SelectionSortDescending(int []arr){
+        int count = 0;
+        for(int i =0;i<arr.length;i++)
         {
-            arr[i]=sc.nextInt();
-        }
-        System.out.println("The fine result is : ");
-        for(int a:arr)
-        {
-            if(a%2==0)
+            
+            int mix= i;
+            for(int j = i+1;j<arr.length;j++){
+            
+                if(arr[j]>arr[mix])
+                {
+                    mix=j;
+                }
+            }
+            if(mix!=i)
             {
-                System.out.println(" "+a);
+            
+                int temp = arr[mix];
+                arr[mix] = arr[i];
+                arr[i] = temp; 
             }
         }
-
+    
     }
+    public static void main(String[] args) {
+        int arr[] = {3,5,1,6,0};
+        SelectionSortDescending(arr);
+        System.out.println("Sorted Array is :");
+        System.out.println(Arrays.toString(arr));
+    }
+    
 }

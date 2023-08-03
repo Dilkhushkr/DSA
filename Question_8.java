@@ -1,32 +1,31 @@
 import java.util.Scanner;
 public class Question_8 {
+    public static int Efficiently_Count(int [] arr,int n){
+        int low =0,high = n-1;
+        while(low<=high)
+        {
+            int mid = low+(high-low)/2;
+            if(arr[mid] == 0)
+            {
+                low = mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return (arr.length-low);
+    }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of row");
-        int m = sc.nextInt();
-        System.out.println("Enter the colum");
-        int n = sc.nextInt();
-        int arr[][] = new int[m][n];
-        int max =arr[0][0];
-        System.out.println("Enter the Array element :");
-        for(int i =0;i<m;i++)
-        {
-            for(int j =0;j<n;j++)
-            {
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        for(int i =0;i<m;i++)
-        {
-            for(int j =0;j<n;j++)
-            {
-                if(i+j<m-1)
-                {
-                    System.out.print(arr[i][j]+" ");
-                }
-            }
-        }
-
-
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Enter the Size of Array");
+         int n = sc.nextInt();
+         int arr[] = new int[n];
+         System.out.println("Enter the Array Element :");
+         for(int i =0;i<n;i++)
+         {
+            arr[i] = sc.nextInt();
+         }
+       int res =  Efficiently_Count(arr,n);
+      System.out.println("The element 1 is found :"+res);
     }
 }

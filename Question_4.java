@@ -1,24 +1,37 @@
-// Q.4 write a program to find out the second largest element in a given array.
-import java.util.Scanner;
+// Find out how many pass would be required  to sort following array using bubble sort 
+// input array {3,5,1,6,0}
 public class Question_4 {
-    public static void main(String[] args) {
-        int arr[] ={34,21,54,65,43};
-        int first=Math.max(arr[0],arr[1]);
-        int sec = Math.min(arr[0],arr[1]);
-        for(int i =0;i<arr.length;i++)
+    public static int   Pass_Bubble_Sort(int []arr,int n){
+        int pass_count = 0;
+        for(int  i =0;i<n;i++)
         {
-            if(arr[i]>first)
+            boolean swapped = false;
+            pass_count+=1;
+            for(int j = 0;j<n-1-i;j++)
             {
-                sec=first;
-                first=arr[i];
+                if(arr[j]>arr[j+1])
+                {
+                      int temp = arr[j];
+                      arr[j] = arr[j+1];
+                      arr[j+1]=temp;
+                      swapped  = true;
+                }
+
             }
-            else if(arr[i]>sec)
+            if(swapped==false)
             {
-                sec=arr[i];
+                break;
             }
         }
-        System.out.println("The first largest value is:"+first);
-        System.out.println("The second largest value is :"+sec);
+        return pass_count;
+    }
+    public static void main(String[] args) {
+        int []arr = {3,5,1,6,0};
+        int n = arr.length;
+      int res =  Pass_Bubble_Sort(arr,n );
+      System.out.println("Pass Wiould be :-"+res);
+        
 
     }
+    
 }
